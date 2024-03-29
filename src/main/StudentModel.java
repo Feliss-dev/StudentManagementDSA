@@ -1,6 +1,7 @@
 package main;
 
 public class StudentModel {
+	// Các giá trị của 1 sinh viên: ID, Tên, Điểm, Xếp Loại
 	private String studentID;
     private String fullName;
     private double gpa;
@@ -8,14 +9,14 @@ public class StudentModel {
 
     public StudentModel() {
 	}
-
+    // Thông tin sinh viên
 	public StudentModel(String studentID, String fullName, double gpa) {
         this.studentID = studentID;
         this.fullName = fullName;
         this.gpa = gpa;
         this.result = calculateResult(gpa);
     }
-
+	//Hàm tính toán xếp loại dựa trên điểm trung bình
     private String calculateResult(double gpa) {
         if (gpa <= 5) {
             return "Trung bình";
