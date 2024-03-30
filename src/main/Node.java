@@ -1,6 +1,6 @@
 package main;
 
-public class Node {
+public class Node { // Tương đương typedef trong C
 	
 	private StudentModel student; // Chứa thông tin của sinh viên
 	private Node next;			  // Node trỏ đến vị trí tiếp theo

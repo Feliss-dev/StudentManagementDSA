@@ -106,6 +106,7 @@ public class Main {
 
 			try {
 				id = scanner.nextInt();
+				
 			} catch (Exception e) {
 				System.out.println("Dữ liệu nhập lỗi vui lòng nhập lại");
 				break;
@@ -122,6 +123,10 @@ public class Main {
 				System.out.println("Sai khoảng dữ liệu");
 				break;
 			}
+			 if (userIds.contains(id)) {
+		            System.out.println("ID sinh viên đã tồn tại trong danh sách. Vui lòng nhập lại.");
+		            continue;
+		        }
 
 			System.out.print("Nhập vào họ và tên sinh viên: ");
 			String name = scanner.nextLine();
@@ -156,6 +161,7 @@ public class Main {
 		double gpa = getStudentGpa();
 		StudentModel student = new StudentModel(id, name, gpa);
 		studentList.addToK(student, position);
+	
 	}
 
 	private static String getStudentId(){
@@ -167,10 +173,17 @@ public class Main {
 		try {
 			searchID = Integer.parseInt(idString);
 			
-			if (searchID < 1000 || searchID >= 9999) {
+			if (searchID < 1000 || searchID >= 9999 ) {
 				System.out.println("ID sinh viên phải ở trong khoảng 1000-9999.");
 				return "";
-			}			
+			}
+			   // Kiểm tra xem ID đã tồn tại trong danh sách chưa
+	        if (userIds.contains(searchID)) {
+	            System.out.println("ID sinh viên đã tồn tại trong danh sách. Vui lòng nhập lại.");
+	            return "";
+	        }else {
+	        	userIds.add(searchID);
+	        }
 		} catch (NumberFormatException e) {
 			System.out.println("Error");
 			return "";
